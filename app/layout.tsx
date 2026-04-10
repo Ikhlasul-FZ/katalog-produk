@@ -12,8 +12,8 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "SAINT | Futuristic Fashion Catalog",
-  description: "Experience the future of fashion. Streetwear, Activewear, and Casual redefined.",
+  title: "SAINT de SEREIN",
+  description: "Indonesian Tapestry Jacket.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
       className={`${inter.variable} ${outfit.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body 
+      <body
         className="min-h-full bg-brand-bg text-brand-text selection:bg-brand-primary selection:text-white"
         suppressHydrationWarning
       >

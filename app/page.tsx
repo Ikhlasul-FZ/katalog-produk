@@ -4,7 +4,7 @@ import { useState } from "react";
 import { products } from "./data/products";
 import { motion, AnimatePresence } from "framer-motion";
 import { LuX, LuShoppingBag, LuPlus, LuSparkles } from "react-icons/lu";
-import { SiInstagram, SiFacebook, SiShopee, SiWhatsapp } from "react-icons/si";
+import { SiInstagram, SiTiktok, SiShopee, SiWhatsapp } from "react-icons/si";
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<(typeof products)[0] | null>(null);
@@ -191,7 +191,7 @@ export default function Home() {
               <div className="flex items-center space-x-10">
                 {[
                   { name: "Instagram", icon: SiInstagram, href: "https://instagram.com" },
-                  { name: "Facebook", icon: SiFacebook, href: "https://facebook.com" },
+                  { name: "TikTok", icon: SiTiktok, href: "https://tiktok.com" },
                   { name: "Shopee", icon: SiShopee, href: "https://shopee.com" },
                   { name: "WhatsApp", icon: SiWhatsapp, href: "https://wa.me/yournumber" },
                 ].map((social) => (
