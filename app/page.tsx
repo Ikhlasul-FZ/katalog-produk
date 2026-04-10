@@ -3,7 +3,20 @@
 import { useState } from "react";
 import { products } from "./data/products";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ShoppingBag, Plus, Sparkles } from "lucide-react";
+import { X, ShoppingBag, Plus, Sparkles, MessageCircle, ShoppingCart } from "lucide-react";
+
+// Custom Social Icons as Lucide removed brand icons in recent versions
+const Instagram = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
+const Facebook = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<(typeof products)[0] | null>(null);
@@ -179,9 +192,38 @@ export default function Home() {
             ))}
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center pt-24 border-t border-gray-100 gap-10">
-            <p className="text-[11px] font-black tracking-[0.8em] text-gray-300 uppercase">
-              SAINT STUDIO © 2026 / GLOBAL ARCHIVE
-            </p>
+            <div className="flex flex-col items-center md:items-start gap-4">
+              <p className="text-[11px] font-black tracking-[0.8em] text-gray-300 uppercase">
+                SAINT STUDIO © 2026 / GLOBAL ARCHIVE
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center md:items-end gap-6">
+              <span className="text-[9px] font-black tracking-[0.5em] text-gray-200 uppercase">Connect_Archive</span>
+              <div className="flex items-center space-x-10">
+                {[
+                  { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
+                  { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
+                  { name: "Shopee", icon: ShoppingCart, href: "https://shopee.com" },
+                  { name: "WhatsApp", icon: MessageCircle, href: "https://wa.me/yournumber" },
+                ].map((social) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex items-center justify-center p-2"
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <span className="absolute -top-10 text-[8px] font-black tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap bg-black text-white px-3 py-1.5 rounded-full shadow-xl">
+                      {social.name}
+                    </span>
+                    <social.icon className="w-5 h-5 text-gray-300 group-hover:text-brand-primary transition-colors duration-300" />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </footer>
