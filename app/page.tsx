@@ -3,20 +3,8 @@
 import { useState } from "react";
 import { products } from "./data/products";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ShoppingBag, Plus, Sparkles, MessageCircle, ShoppingCart } from "lucide-react";
-
-// Custom Social Icons as Lucide removed brand icons in recent versions
-const Instagram = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </svg>
-);
-
-const Facebook = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
+import { LuX, LuShoppingBag, LuPlus, LuSparkles } from "react-icons/lu";
+import { SiInstagram, SiFacebook, SiShopee, SiWhatsapp } from "react-icons/si";
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<(typeof products)[0] | null>(null);
@@ -43,7 +31,7 @@ export default function Home() {
         </div>
         <div className="flex items-center space-x-8 text-black">
           <div className="text-[10px] font-black tracking-widest hidden lg:block">ARCHIVE / 01</div>
-          <ShoppingBag className="w-5 h-5 cursor-pointer hover:text-brand-primary transition-colors" />
+          <LuShoppingBag className="w-5 h-5 cursor-pointer hover:text-brand-primary transition-colors" />
         </div>
       </nav>
 
@@ -89,7 +77,7 @@ export default function Home() {
                     <div className="flex justify-between items-center">
                       <span className="font-display font-bold text-lg">${product.price}</span>
                       <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-brand-primary transition-colors">
-                        <Plus className="w-5 h-5" />
+                        <LuPlus className="w-5 h-5" />
                       </div>
                     </div>
                   </div>
@@ -117,7 +105,7 @@ export default function Home() {
               onClick={() => setSelectedProduct(null)}
               className="absolute top-12 left-12 z-10 flex items-center text-[11px] font-black tracking-[0.5em] uppercase hover:text-brand-primary transition-colors text-black"
             >
-              <X className="w-6 h-6 mr-4" /> [ Close_Archive ]
+              <LuX className="w-6 h-6 mr-4" /> [ Close_Archive ]
             </button>
 
             <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
@@ -163,7 +151,7 @@ export default function Home() {
                       Acquire Item
                     </button>
                     <button className="hidden md:flex w-20 h-20 rounded-full border border-gray-100 items-center justify-center hover:bg-gray-50 transition-colors">
-                      <Sparkles className="w-7 h-7 text-gray-200" />
+                      <LuSparkles className="w-7 h-7 text-gray-200" />
                     </button>
                   </div>
                 </motion.div>
@@ -202,10 +190,10 @@ export default function Home() {
               <span className="text-[9px] font-black tracking-[0.5em] text-gray-200 uppercase">Connect_Archive</span>
               <div className="flex items-center space-x-10">
                 {[
-                  { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
-                  { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
-                  { name: "Shopee", icon: ShoppingCart, href: "https://shopee.com" },
-                  { name: "WhatsApp", icon: MessageCircle, href: "https://wa.me/yournumber" },
+                  { name: "Instagram", icon: SiInstagram, href: "https://instagram.com" },
+                  { name: "Facebook", icon: SiFacebook, href: "https://facebook.com" },
+                  { name: "Shopee", icon: SiShopee, href: "https://shopee.com" },
+                  { name: "WhatsApp", icon: SiWhatsapp, href: "https://wa.me/yournumber" },
                 ].map((social) => (
                   <motion.a
                     key={social.name}
