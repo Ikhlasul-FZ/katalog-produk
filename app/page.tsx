@@ -30,7 +30,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex items-center space-x-8 text-black">
-          <div className="text-[10px] font-black tracking-widest hidden lg:block">ARCHIVE / 01</div>
+          <div className="text-[10px] font-black tracking-widest hidden lg:block">BUY NOW</div>
           <LuShoppingBag className="w-5 h-5 cursor-pointer hover:text-brand-primary transition-colors" />
         </div>
       </nav>
