@@ -25,7 +25,7 @@ export default function Home() {
       >
         <div className="flex items-center space-x-12">
           <div className="text-2xl font-display font-black tracking-tighter cursor-pointer text-black">
-            SAINT<span className="text-brand-primary">.</span>
+            SAINT de SEREIN<span className="text-brand-primary">.</span>
           </div>
         </div>
         <div className="flex items-center space-x-8 text-black">
@@ -166,7 +166,7 @@ export default function Home() {
             {"SAINT".split("").map((char, i) => (
               <motion.span
                 key={i}
-                whileHover={{ 
+                whileHover={{
                   color: ["#3b82f6", "#a855f7", "#ec4899", "#f97316", "#06f2ff"][i],
                   scale: 1.1,
                   textShadow: `0 0 80px ${["#3b82f6", "#a855f7", "#ec4899", "#f97316", "#06f2ff"][i]}`,
