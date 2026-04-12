@@ -47,7 +47,7 @@ export default function Home() {
               <h1 className="text-[11vw] font-display font-black leading-[0.75] tracking-tighter mb-6 text-black">
                 ARCHIVE<br /> <span className="text-brand-primary">COLLECTION</span>
               </h1>
-              <p className="text-[10px] tracking-[0.8em] font-black text-gray-400 uppercase">Seamless Aesthetic Identity</p>
+              <p className="text-[10px] tracking-[0.8em] font-black text-gray-400 uppercase">Tapestry Jacket Collection</p>
             </div>
           </motion.div>
         </div>
@@ -99,20 +99,22 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-white flex items-center justify-center p-6 md:p-24 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-white flex items-center justify-center p-4 md:p-12 overflow-hidden"
           >
+            {/* Close Button - Sticky at Top */}
             <button
               onClick={() => setSelectedProduct(null)}
-              className="absolute top-12 left-12 z-10 flex items-center text-[11px] font-black tracking-[0.5em] uppercase hover:text-brand-primary transition-colors text-black"
+              className="absolute top-8 left-8 md:top-12 md:left-12 z-[60] flex items-center text-[10px] md:text-[11px] font-black tracking-[0.5em] uppercase hover:text-brand-primary transition-colors text-black"
             >
-              <LuX className="w-6 h-6 mr-4" /> [ Close_Archive ]
+              <LuX className="w-5 h-5 md:w-6 md:h-6 mr-3 md:mr-4" />
             </button>
 
-            <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div className="max-w-7xl w-full h-full max-h-[90vh] md:max-h-[80vh] flex flex-col md:flex-row items-stretch gap-8 md:gap-20">
+              {/* Image Section - Scaled to fit height */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="relative aspect-square md:aspect-[4/5] overflow-hidden rounded-[4rem] shadow-2xl shadow-black/[0.05] border border-gray-50"
+                className="relative flex-1 min-h-0 overflow-hidden rounded-[2rem] md:rounded-[3rem] shadow-2xl shadow-black/[0.05] border border-gray-50 bg-gray-50"
               >
                 <img
                   src={selectedProduct.image}
@@ -121,37 +123,36 @@ export default function Home() {
                 />
               </motion.div>
 
-              <div className="flex flex-col">
+              {/* Text Section - Centered vertically and overflow-controlled */}
+              <div className="flex-1 flex flex-col justify-center min-w-0">
                 <motion.div
-                  initial={{ opacity: 0, x: 40 }}
+                  initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
+                  transition={{ delay: 0.1 }}
+                  className="flex flex-col"
                 >
-                  <div className="flex items-center space-x-6 mb-10">
-                    <span className="bg-brand-primary/10 text-brand-primary px-6 py-2 rounded-full text-[11px] font-black tracking-widest uppercase">
+                  <div className="flex items-center space-x-4 mb-4 md:mb-8">
+                    <span className="bg-brand-primary/10 text-brand-primary px-4 py-1.5 rounded-full text-[9px] md:text-[10px] font-black tracking-widest uppercase">
                       {selectedProduct.category}
                     </span>
-                    <div className="h-[1px] w-20 bg-gray-100" />
+                    <div className="h-[1px] flex-1 max-w-[80px] bg-gray-100" />
                   </div>
 
-                  <h2 className="text-7xl md:text-9xl font-display font-black tracking-tighter leading-none mb-10 text-black">
+                  <h2 className="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-display font-black tracking-tighter leading-[0.85] mb-6 text-black uppercase">
                     {selectedProduct.name}
                   </h2>
 
-                  <div className="text-5xl font-display font-black text-black mb-14 underline decoration-brand-primary decoration-8 underline-offset-[12px]">
+                  <div className="text-2xl md:text-4xl font-display font-black text-black mb-6 md:mb-10 inline-block border-l-4 border-brand-primary pl-6">
                     ${selectedProduct.price}
                   </div>
 
-                  <p className="text-gray-400 leading-relaxed font-light mb-20 max-w-md text-xl">
-                    {selectedProduct.description} High-performance precision, architectural aesthetics.
+                  <p className="text-gray-500 leading-relaxed font-light mb-8 md:mb-12 max-w-md text-sm md:text-lg lg:text-xl overflow-hidden line-clamp-3 md:line-clamp-none">
+                    {selectedProduct.description} High-performance precision with architectural aesthetics.
                   </p>
 
-                  <div className="flex items-center space-x-8">
-                    <button className="flex-1 lg:flex-none bg-black text-white px-20 py-8 rounded-full font-black text-xs tracking-[0.5em] uppercase hover:bg-brand-primary transition-all duration-500 shadow-2xl shadow-black/10">
-                      Acquire Item
-                    </button>
-                    <button className="hidden md:flex w-20 h-20 rounded-full border border-gray-100 items-center justify-center hover:bg-gray-50 transition-colors">
-                      <LuSparkles className="w-7 h-7 text-gray-200" />
+                  <div className="flex items-center space-x-4">
+                    <button className="flex-1 md:flex-none bg-black text-white px-8 md:px-16 py-4 md:py-6 rounded-full font-black text-[10px] md:text-xs tracking-[0.5em] uppercase hover:bg-brand-primary transition-all duration-500 shadow-xl shadow-black/10">
+                      BUY
                     </button>
                   </div>
                 </motion.div>
@@ -163,32 +164,75 @@ export default function Home() {
 
       <footer className="bg-white border-t border-gray-50 pt-48 pb-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-10">
-          <div className="text-[25vw] font-display font-black leading-none tracking-tighter text-gray-100 mb-32 text-center flex justify-center cursor-default">
-            {"SAINT".split("").map((char, i) => (
-              <motion.span
-                key={i}
-                whileHover={{
-                  color: ["#3b82f6", "#a855f7", "#ec4899", "#f97316", "#06f2ff"][i],
-                  scale: 1.1,
-                  textShadow: `0 0 80px ${["#3b82f6", "#a855f7", "#ec4899", "#f97316", "#06f2ff"][i]}`,
-                  opacity: 1
-                }}
-                className="transition-all duration-300 opacity-20"
-              >
-                {char}
-              </motion.span>
-            ))}
+          <div className="relative mb-32 select-none flex flex-col items-center">
+            {/* Primary Brand - SAINT */}
+            <div className="flex justify-center gap-x-[0.02em] text-[25vw] md:text-[20vw] font-display font-black leading-[0.7] tracking-tighter text-black/5 cursor-default">
+              {"SAINT".split("").map((char, i) => {
+                const colors = ["#3b82f6", "#a855f7", "#ec4899", "#ef4444", "#f59e0b", "#10b981", "#06b6d4"];
+                const color = colors[i % colors.length];
+                return (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.02, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={{
+                      color: color,
+                      scale: 1.1,
+                      textShadow: `0 0 100px ${color}, 0 0 40px ${color}`,
+                      opacity: 1,
+                    }}
+                    className="transition-all duration-300"
+                  >
+                    {char}
+                  </motion.span>
+                );
+              })}
+            </div>
+
+            {/* Sub Brand - de SEREIN */}
+            <div className="flex justify-center gap-x-[0.05em] text-[4vw] md:text-[3vw] font-display font-black tracking-[0.8em] text-black/10 cursor-default uppercase mt-4">
+              {"de SEREIN".split("").map((char, i) => {
+                const colors = ["#3b82f6", "#a855f7", "#ec4899", "#ef4444", "#f59e0b", "#10b981", "#06b6d4"];
+                const color = colors[(i + 5) % colors.length];
+                return (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.15 + (i * 0.01), duration: 0.5 }}
+                    whileHover={{
+                      color: color,
+                      scale: 1.2,
+                      textShadow: `0 0 40px ${color}`,
+                      opacity: 1,
+                    }}
+                    className={`transition-all duration-300 inline-block ${char === " " ? "w-[0.5em]" : ""}`}
+                  >
+                    {char}
+                  </motion.span>
+                );
+              })}
+            </div>
+
+            {/* Decorative line */}
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: "100%", opacity: 0.1 }}
+              transition={{ duration: 1.2, delay: 0.3 }}
+              className="h-[1px] bg-gradient-to-r from-transparent via-black to-transparent mt-16 max-w-4xl"
+            />
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center pt-24 border-t border-gray-100 gap-10">
             <div className="flex flex-col items-center md:items-start gap-4">
               <p className="text-[11px] font-black tracking-[0.8em] text-gray-300 uppercase">
-                SAINT STUDIO © 2026 / GLOBAL ARCHIVE
+                SAINT DE SEREIN © 2026
               </p>
             </div>
 
-            <div className="flex flex-col items-center md:items-end gap-6">
-              <span className="text-[9px] font-black tracking-[0.5em] text-gray-200 uppercase">Connect_Archive</span>
-              <div className="flex items-center space-x-10">
+            <div className="flex flex-col items-center md:items-end gap-8">
+              <span className="text-[10px] font-black tracking-[0.5em] text-black uppercase opacity-40">Connect With Us</span>
+              <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
                 {[
                   { name: "Instagram", icon: SiInstagram, href: "https://instagram.com" },
                   { name: "TikTok", icon: SiTiktok, href: "https://tiktok.com" },
@@ -200,14 +244,12 @@ export default function Home() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex items-center justify-center p-2"
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
+                    className="flex items-center space-x-3 px-5 py-3 rounded-full border border-gray-100 bg-white text-black hover:text-brand-primary hover:border-brand-primary/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-brand-primary/5 group"
+                    whileHover={{ y: -4 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <span className="absolute -top-10 text-[8px] font-black tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap bg-black text-white px-3 py-1.5 rounded-full shadow-xl">
-                      {social.name}
-                    </span>
-                    <social.icon className="w-5 h-5 text-gray-300 group-hover:text-brand-primary transition-colors duration-300" />
+                    <social.icon className="w-4 h-4 transition-transform group-hover:scale-110" />
+                    <span className="text-[10px] font-black tracking-widest uppercase">{social.name}</span>
                   </motion.a>
                 ))}
               </div>
